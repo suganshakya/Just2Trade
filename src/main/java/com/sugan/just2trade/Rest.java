@@ -77,7 +77,6 @@ public class Rest {
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         if(accessToken != null)
             headers.add("Authorization", "Bearer " + accessToken);
 

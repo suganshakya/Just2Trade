@@ -31,12 +31,12 @@ public class Just2TradeClient {
     }
 
 
-    private UserInfo getUserInfo(){
+    public UserInfo getUserInfo(){
         UserInfo userInfo = rest.get("/userinfo", UserInfo.class);
         return  userInfo;
     }
 
-    private List<Account> getAccounts(){
+    public List<Account> getAccounts(){
         // If you account model is different, collect jsonNode and map to your class
         Account[]  accounts =  rest.get("/accounts", Account[].class);
         return Arrays.asList(accounts);
@@ -99,9 +99,9 @@ public class Just2TradeClient {
         InputStream inputStream = classloader.getResourceAsStream("conf.properties");
         Properties properties = new Properties();
         properties.load(inputStream);
-        String accessToke = properties.getProperty("access_token");
+        String accessToken = properties.getProperty("access_token");
 
-        Just2TradeClient client = new Just2TradeClient(accessToke);
+        Just2TradeClient client = new Just2TradeClient(accessToken);
         UserInfo info = client.getUserInfo();
         String accountNumber = info.getAccounts().get(0).getAccountNumber();
 
